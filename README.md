@@ -23,7 +23,7 @@
 ![Screenshot](https://ambroseling.github.io/assets/activity_4.png)
 
 ## Activity 5
-<video src="https://ambroseling.github.io/assets/activity-5.gif"></video>
+![activity-5-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/25aa2b54-5064-473a-9045-cf478fcfbb77)
 
 ## Sections 📚
 ✔️ About me\
