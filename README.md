@@ -7,8 +7,13 @@
 ![Screenshot](https://ambroseling.github.io/assets/activity_1.png)
 
 ## Activity 2
+### Main Page
 ![Screenshot](https://ambroseling.github.io/assets/activity_2_1.png)
+
+### Experience
 ![Screenshot](https://ambroseling.github.io/assets/activity_2_2.png)
+
+### Profile section
 ![Screenshot](https://ambroseling.github.io/assets/activity_2_3.png)
 
 ## Activity 3
@@ -18,8 +23,7 @@
 ![Screenshot](https://ambroseling.github.io/assets/activity_4.png)
 
 ## Activity 5
-![Screenshot](https://ambroseling.github.io/assets/activity_5.mov)
-
+<video src="https://ambroseling.github.io/assets/activity_5.mov"></video>
 
 
 ![GitHub stars](https://img.shields.io/github/stars/varadbhogayata/varadbhogayata.github.io) 
