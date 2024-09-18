@@ -7,9 +7,9 @@
 ![Screenshot](https://ambroseling.github.io/assets/activity_1.png)
 
 ## Activity 2
-![Screenshot](https://ambroseling.github.io/assets/activity_2-1.png)
-![Screenshot](https://ambroseling.github.io/assets/activity_2-2.png)
-![Screenshot](https://ambroseling.github.io/assets/activity_2-3.png)
+![Screenshot](https://ambroseling.github.io/assets/activity_2_1.png)
+![Screenshot](https://ambroseling.github.io/assets/activity_2_2.png)
+![Screenshot](https://ambroseling.github.io/assets/activity_2_3.png)
 
 ## Activity 3
 ![Screenshot](https://ambroseling.github.io/assets/activity_3.png)
