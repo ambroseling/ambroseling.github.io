@@ -1,7 +1,10 @@
 # Personal Portfolio ⚡️ 
 > A personal website for Ambrose Ling
 > This repo is a clone of https://github.com/varadbhogayata/varadbhogayata.github.io (For ECE444 Lab 1)
-> https://varadbhogayata.github.io
+> https://ambroseling.github.io/assets/activity_1.png
+
+## Activity 1
+![Screenshot](/assets/activity_1.png)
 
 ![GitHub stars](https://img.shields.io/github/stars/varadbhogayata/varadbhogayata.github.io) 
 ![GitHub forks](https://img.shields.io/github/forks/varadbhogayata/varadbhogayata.github.io)
