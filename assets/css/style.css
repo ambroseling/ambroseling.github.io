@@ -11,13 +11,13 @@
   /* background-size: cover;  */
   margin: -31px; 
   margin-left:-7px;
-  border: 6px solid rgba(0, 77, 64, 0.4); 
+  border: 6px solid rgba(0, 0, 0, 0.4); 
   border-radius: 50% !important;
 }
 
 .profile-pic img {
-  width: 100%;
-  height: auto;
+  width: 300px;
+  height: 300px;
 }
 
 .tracker {
@@ -85,7 +85,7 @@
   position: relative;
   padding: 11px 35px;
   background: #fff;
-  color: #00796b;
+  color: #000000;
   border: 2px solid #fff;
   font-weight: 600;
   font-size: 15px;
@@ -116,7 +116,7 @@
 }
 
 .contactme:hover{
-  color: #00796b;
+  color: #000000;
   background-color: white;
 }
 /* main body */
@@ -124,7 +124,7 @@
 /* body-color */
 
 body {
-  color: #333;
+  color: #000000;
   font-size: 18px;
 }
 
@@ -155,8 +155,8 @@ a {
 } */
 
 blockquote {
-  border-left: 5px solid #795548;
-  color: #795548;
+  border-left: 5px solid #000000;
+  color: #000000;
   font-size: 125%;
   font-weight: 400;
   margin: 20px 0;
@@ -237,7 +237,7 @@ ul.side-nav li {
 
 ul.side-nav.fixed a {
   box-sizing: content-box;
-  color: rgb(16, 202, 56);
+  color: rgb(0, 0, 0);
   display: block;
   line-height: 100%;
   padding: 10px 0 12px;
@@ -320,7 +320,7 @@ h3 {
 } */
 
 #intro.section {
-  background: #a7ffeb repeat;
+  background: #000000 repeat;
   position: relative;
 }
 
@@ -344,11 +344,11 @@ h3 {
   /* font-weight: 400; */
   line-height: 150%;
   /* padding: 0 0px; */
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 5px rgb(0, 0, 0);
 }
 
 #intro.section .underline {
-  border-bottom: 5px solid #24305e;
+  border-bottom: 5px solid #3e4c84;
 }
 
 #intro.section .teal {
@@ -367,11 +367,11 @@ h3 {
 .waves-effect.waves-blue .waves-ripple {
   /* The alpha value allows the text and background color
    of the button to still show through. */
-  background-color: rgba(33, 150, 243, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .card {
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 
 .card .role {
@@ -393,7 +393,7 @@ h3 {
 }
 
 .card .card-content {
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 }
 
 .card .card-content p {
@@ -515,7 +515,7 @@ a.hoverline:hover {
 }
 
 .card.medium .card-image {
-  height: 240px;
+  height: 120px;
 }
 
 .card-action a.btn-floating {
@@ -548,8 +548,8 @@ small {
 
 /* main .teal-text */
 
-.teal-text {
-  color: #008073 !important;
+.black-text {
+  color: #000000 !important;
 }
 
 /* .teal-text {
@@ -558,8 +558,8 @@ small {
 
 /* .teal */
 
-.teal {
-  background-color: #008073 !important;
+.black {
+  background-color: #000000 !important;
 }
 
 /* .teal {
@@ -602,7 +602,7 @@ small {
     position: absolute;
   }
   nav a.button-collapse, nav a.button-collapse i {
-    color: #009688;
+    color: #000000;
     height: 56px;
     line-height: 56px;
   }
@@ -691,4 +691,22 @@ small {
   #intro.section {
     background-position-x: 30%;
   }
+}
+
+.styled-button {
+  background-color: #000000; /* Green background */
+  border: none;               /* Remove borders */
+  color: white;                /* White text */
+  padding: 15px 32px;          /* Some padding */
+  text-align: center;          /* Centered text */
+  text-decoration: none;       /* Remove underline */
+  display: inline-block;       /* Make the button inline */
+  font-size: 16px;             /* Increase font size */
+  margin: 4px 2px;             /* Add some margin */
+  cursor: pointer;             /* Add a pointer on hover */
+  border-radius: 12px;         /* Rounded corners */
+}
+
+.styled-button:hover {
+  background-color: #000000af;   /* Darker green on hover */
 }

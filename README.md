@@ -4,7 +4,23 @@
 > https://ambroseling.github.io/assets/activity_1.png
 
 ## Activity 1
-![Screenshot](/assets/activity_1.png)
+![Screenshot](https://ambroseling.github.io/assets/activity_1.png)
+
+## Activity 2
+![Screenshot](https://ambroseling.github.io/assets/activity_2-1.png)
+![Screenshot](https://ambroseling.github.io/assets/activity_2-2.png)
+![Screenshot](https://ambroseling.github.io/assets/activity_2-3.png)
+
+## Activity 3
+![Screenshot](https://ambroseling.github.io/assets/activity_3.png)
+
+## Activity 4
+![Screenshot](https://ambroseling.github.io/assets/activity_4.png)
+
+## Activity 5
+![Screenshot](https://ambroseling.github.io/assets/activity_5.mov)
+
+
 
 ![GitHub stars](https://img.shields.io/github/stars/varadbhogayata/varadbhogayata.github.io) 
 ![GitHub forks](https://img.shields.io/github/forks/varadbhogayata/varadbhogayata.github.io)
