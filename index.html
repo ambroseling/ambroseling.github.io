@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambrose Ling - Personal Website</title>
+    <!-- Add marked.js for markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            opacity: 0; /* Start with opacity 0 */
+            animation: fadeIn 1s ease-in-out forwards; /* 1 second fade in animation */
+        }
+        
+        /* Add this new style for the blog content container */
+        #blog-content-container {
+            padding: 0 40px; /* Add 40px padding on left and right */
+            max-width: 700px; /* Limit the maximum width */
+            margin: 0 auto; /* Center the container */
+            line-height: 1.8; /* Improve line spacing for readability */
+        }
+        
+        /* You might also want to style the markdown headings and paragraphs */
+        #blog-content-container h1, 
+        #blog-content-container h2, 
+        #blog-content-container h3 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        #blog-content-container p {
+            margin-bottom: 20px;
+        }
+        
+        #blog-content-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+        
+        #blog-content-container code {
+            background-color: #f5f5f5;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        
+        #blog-content-container pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+        
+        .nav-item {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            padding-bottom: 5px;
+            position: relative;
+        }
+        
+        .active {
+            position: relative;
+        }
+        
+        .social-links::after {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: red;
+        }
+        
+        /* Change this to be more specific to nav items */
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: red;
+        }
+        
+        .profile-img {
+            max-width: 300px;
+            display: block;
+            margin-bottom: 20px;
+        }
+        
+        .project-item {
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+        
+        .project-title {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .project-description {
+            display: none;
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+        
+        .project-title::before {
+            content: '^ ';
+        }
+        
+        /* Add this new style for closed projects */
+        .project-item .project-title::before {
+            content: '> ';
+        }
+        
+        /* Add this style for open projects */
+        .project-item.open .project-title::before {
+            content: '^ ';
+        }
+        
+        .content-section {
+            display: none;
+            padding: 0 20px; /* Add 20px padding to left and right */
+            margin-bottom: 20px; /* Reduced from 50px to 20px */
+            /* Remove any red line styling here if present */
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        body {
+            padding-bottom: 30px; /* Reduced from 50px to 30px */
+        }
+        .social-links {
+            display: flex;
+            gap: 50px;
+            margin-top: 40px;
+            position: relative;
+        }
+        
+        .social-link {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+        
+        /* Blog styles */
+        .blog-item {
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+        
+        .blog-title {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .blog-content {
+            display: none;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-top: 5px;
+        }
+        
+        /* .blog-content-container {
+            padding-left: 120px;
+            padding-right: 120px;
+            margin-left: 120px;
+            margin-right: 120px;
+            margin-top: 5px;
+        } */
+
+        .blog-item .blog-title::before {
+            content: '> ';
+        }
+        
+        .blog-item.open .blog-title::before {
+            content: '^ ';
+        }
+        
+        .blog-date {
+            font-size: 14px;
+            color: #666;
+            margin-left: 10px;
+        }
+        
+        /* New styles for blog view */
+        .blog-view {
+            display: none;
+        }
+        
+        .blog-view.active {
+            display: block;
+        }
+        
+        .back-button {
+            display: inline-block;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#about" class="nav-item active" onclick="showSection('about')">about me</a>
+        <a href="#projects" class="nav-item" onclick="showSection('projects')">projects</a>
+        <a href="#blog" class="nav-item" onclick="showSection('blog')">blog</a>
+    </div>
+    
+    <div id="about" class="content-section active">
+        <img src="profile.jpg" alt="Ambrose Ling" class="profile-img">
+        <p>Hi there, my name is Ambrose Ling, studying Computer Engineering at the University of Toronto. Some things I find pretty cool are large scale ML systems, computer architecture, accelerators, deep learning.</p>
+        
+        <p>In the past I have done some startup work for LINKUPSS that develops video communication software for seniors during the pandemic, recognized by Google. I worked as a founding engineer at a productivity app startup (aSocial. inc), helping raised capital from investors and deployed to thousands of users.</p>
+        
+        <p>I was a research intern at Professor Qian Lin's neuroscience lab where I developed zebra-fish locomotion prediction and tracking software using deep learning models.</p>
+        
+        <p>I was a ML intern at Huawei where I worked on quantization, distillation of Image and Diffusion Models to edge devices.</p>
+        
+        <p>Outside of school, I've been a contributor to the UTMIST (University of Toronto Student Team) community for almost 5 years where I was involved with leading engineering projects, technical writing and infrastructure development.</p>
+        
+        <p>In my free time, you can find me going to the gym, hiking, playing some casual chess!</p>
+
+        <p>Feel free to connect with me through channels below if you would like to chat more! I'm always happy to meet new people</p>
+        
+        <div class="social-links">
+            <a href="mailto:lingambrose@gmail.com" class="social-link">email</a>
+            <a href="https://github.com/ambroseling" class="social-link">github</a>
+            <a href="https://linkedin.com/in/ambrose-ling" class="social-link">linkedin</a>
+        </div>
+    </div>
+    
+    <div id="projects" class="content-section">
+        <div class="project-item" onclick="toggleProject(this)">
+            <div class="project-title"> <b>nucleaise:</b> protein function prediction with GNN and Transformers</div>
+            <div class="project-description">
+                A deep learning project that combines Graph Neural Networks and Transformers for predicting protein functions.
+            </div>
+        </div>
+        
+        <div class="project-item" onclick="toggleProject(this)">
+            <div class="project-title"><b>uoft-marketplace:</b> marketplace web app in Python + React</div>
+            <div class="project-description">
+                A web application for University of Toronto students to buy and sell items, built with Python backend and React frontend.
+            </div>
+        </div>
+        
+        <div class="project-item" onclick="toggleProject(this)">
+            <div class="project-title"><b>roast-route:</b>: geographical information system in C++</div>
+            <div class="project-description">
+                A C++ application for geographical routing and information processing.
+            </div>
+        </div>
+        
+        <div class="project-item" onclick="toggleProject(this)">
+            <div class="project-title"><b>ez-tensors:</b>: a neural network library written from scratch in C++</div>
+            <div class="project-description">
+                A custom neural network library implemented in C++ with tensor operations and backpropagation.
+            </div>
+        </div>
+        
+        <div class="project-item" onclick="toggleProject(this)">
+            <div class="project-title"><b>mistral-prof:</b>: language model finetuned to be a ECE professor</div>
+            <div class="project-description">
+                A fine-tuned language model based on Mistral that simulates an Electrical and Computer Engineering professor.
+            </div>
+        </div>
+        
+        <div class="project-item" onclick="toggleProject(this)">
+            <div class="project-title"><b>laymanz-ml:</b>: notebooks on diffusion, optimizers, ml fundamentals</div>
+            <div class="project-description">
+                Educational notebooks explaining machine learning concepts in an accessible way.
+            </div>
+        </div>
+        
+        <div class="project-item" onclick="toggleProject(this)">
+            <div class="project-title"><b>meeting-place:</b>: events for uoft web app in Python + React</div>
+            <div class="project-description">
+                A web application for University of Toronto students to organize and find events on campus.
+            </div>
+        </div>
+        
+        <div class="project-item" onclick="toggleProject(this)">
+            <div class="project-title"><b>deep-hoopers:</b>: multi-trajectory prediction in basketball with GNNs</div>
+            <div class="project-description">
+                A project using Graph Neural Networks to predict multiple possible trajectories in basketball games.
+            </div>
+        </div>
+        
+        <div class="project-item" onclick="toggleProject(this)">
+            <div class="project-title"><b>arm-processor:</b> 16-bit processor in Verilog</div>
+            <div class="project-description">
+                A 16-bit processor implementation using Verilog hardware description language.
+            </div>
+        </div>
+        
+        <div class="project-item" onclick="toggleProject(this)">
+            <div class="project-title"><b>athena:</b> your ai assistant for acing your finals</div>
+            <div class="project-description">
+                An AI assistant designed to help students prepare for final exams.
+            </div>
+        </div>
+    
+        <div class="project-item" onclick="toggleProject(this)">
+            <div class="project-title"><b>reversi-bot:</b> a AI that plays reversi</div>
+            <div class="project-description">
+                An AI assistant designed to help students prepare for final exams.
+            </div>
+        </div>
+        <div class="project-item" onclick="toggleProject(this)">
+            <div class="project-title"><b>tensorflow</b>:</b> deep learning explorations in tensorflow</div>
+            <div class="project-description">
+                In this project, I explored the fundamentals of deep learning using TensorFlow.
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="mailto:lingambrose@gmail.com" class="social-link">email</a>
+            <a href="https://github.com/ambroseling" class="social-link">github</a>
+            <a href="https://www.linkedin.com/in/ambrose-ling/" class="social-link">linkedin</a>
+        </div>
+    </div>
+    
+    <div id="blog" class="content-section">
+        <div id="blog-list"></div>
+        
+        <div id="blog-view" class="blog-view">
+            <div class="back-button" onclick="showBlogList()">< <b>see all blogs</b></div>
+            <div id="blog-content-container"></div>
+        </div>
+        
+        <div class="social-links">
+            <a href="mailto:lingambrose@gmail.com" class="social-link">email</a>
+            <a href="https://github.com/ambroseling" class="social-link">github</a>
+            <a href="https://www.linkedin.com/in/ambrose-ling/" class="social-link">linkedin</a>
+        </div>
+    </div>
+    
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update active nav item
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Find the clicked nav item and make it active
+            const clickedItem = document.querySelector(`.nav-item[href="#${sectionId}"]`);
+            clickedItem.classList.add('active');
+            
+            // Load blog posts if blog section is selected
+            if (sectionId === 'blog') {
+                loadBlogPosts();
+            }
+        }
+        
+        function toggleProject(element) {
+            const description = element.querySelector('.project-description');
+            if (description.style.display === 'block') {
+                description.style.display = 'none';
+                element.classList.remove('open');
+            } else {
+                description.style.display = 'block';
+                element.classList.add('open');
+            }
+        }
+        
+        function toggleBlog(element) {
+            const content = element.querySelector('.blog-content');
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                element.classList.remove('open');
+            } else {
+                content.style.display = 'block';
+                element.classList.add('open');
+                
+                // If the blog content hasn't been loaded yet, load it
+                if (content.getAttribute('data-loaded') !== 'true') {
+                    const blogPath = content.getAttribute('data-path');
+                    fetchBlogContent(blogPath, content);
+                }
+            }
+        }
+        
+        function loadBlogPosts() {
+            const blogs = [
+                { 
+                    title: 'diffusion models',
+                    path: 'blogs/diffusion.md',
+                    date: '2023-05-15',
+                    description: 'crazy how this stuff works'
+                },
+                { 
+                    title: 'building a neural network library from scratch',
+                    path: 'blogs/eztensors.md',
+                    date: '2023-06-22',
+                    description: 'the entire time me judging how unoptimized everything is'
+                },
+                { 
+                    title: 'stuff about parameter efficient finetuning',
+                    path: 'blogs/mem_op.md',
+                    date: '2023-06-22',
+                    description: 'some of the works in memory optimization.'
+                }
+                ,{
+                    title: 'rag systems',
+                    path: 'blogs/rag.md',
+                    date: '2023-06-22',
+                    description: 'my notes on RAG sysytems'
+                }
+            ];
+            
+            const blogList = document.getElementById('blog-list');
+            blogList.innerHTML = ''; // Clear existing content
+            
+            blogs.forEach(blog => {
+                const blogItem = document.createElement('div');
+                blogItem.className = 'blog-item';
+                blogItem.onclick = function() { showBlogPost(blog.path, blog.title); };
+                
+                const blogTitle = document.createElement('div');
+                blogTitle.className = 'blog-title';
+                blogTitle.innerHTML = `<b>${blog.title}</b><span class="blog-date">${blog.date}</span>`;
+                
+                blogItem.appendChild(blogTitle);
+                blogList.appendChild(blogItem);
+            });
+            
+            document.getElementById('blog-list').style.display = 'block';
+            document.getElementById('blog-view').classList.remove('active');
+        }
+        
+        function showBlogPost(path, title) {
+            document.getElementById('blog-list').style.display = 'none';
+            document.getElementById('blog-view').classList.add('active');
+            fetchBlogContent(path, document.getElementById('blog-content-container'));
+        }
+        
+        function showBlogList() {
+            document.getElementById('blog-view').classList.remove('active');
+            document.getElementById('blog-list').style.display = 'block';
+            document.getElementById('blog-content-container').innerHTML = '';
+        }
+        
+        function fetchBlogContent(path, contentElement) {
+            contentElement.innerHTML = '<p>Loading...</p>'; // Show loading indicator
+            fetch(path)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(markdown => {
+                    contentElement.innerHTML = marked.parse(markdown);
+                })
+                .catch(error => {
+                    console.error('Error fetching blog content:', error);
+                    contentElement.innerHTML = '<p>Error loading blog content. Please try again later.</p>';
+                });
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showSection(hash);
+            }
+        });
+    </script>
+</body>
+</html>
